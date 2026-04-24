@@ -57,14 +57,14 @@ function CalendarPage() {
       ) : (
         <YearView phases={phases} profile={profile} dailyLogs={dailyLogs}
           showPredictions={showPredictions}
-          onMonthClick={(d) => { setCursor(d); setView("month"); }} />
+          onMonthClick={(d: Date) => { setCursor(d); setView("month"); }} />
       )}
 
       <DayLogSheet
         date={openDay}
         onClose={() => setOpenDay(null)}
         log={openDay ? dailyLogs[format(openDay, "yyyy-MM-dd")] : undefined}
-        onSave={(date, log) => { upsertLog(format(date, "yyyy-MM-dd"), log); }}
+        onSave={(date: Date, log: any) => { upsertLog(format(date, "yyyy-MM-dd"), log); }}
         currentPhase={openDay ? phaseForDay(dayInCycle(openDay, profile.lastPeriodStart, phases), phases).phase : null}
       />
     </div>
