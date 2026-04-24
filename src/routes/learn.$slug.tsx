@@ -51,7 +51,7 @@ function ArticlePage() {
       </header>
 
       <div className="mt-8 space-y-5 font-display text-lg leading-relaxed text-foreground/85">
-        {article.body.map((p, i) => <p key={i}>{p}</p>)}
+        {article.body.map((p: string, i: number) => <p key={i}>{p}</p>)}
       </div>
 
       {related.length > 0 && (

@@ -9,10 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LearnRouteImport } from './routes/learn'
 import { Route as CycleRouteImport } from './routes/cycle'
 import { Route as CalendarRouteImport } from './routes/calendar'
+import { Route as BodyRouteImport } from './routes/body'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as QuizPcosRouteImport } from './routes/quiz.pcos'
+import { Route as QuizEndoRouteImport } from './routes/quiz.endo'
+import { Route as LearnSlugRouteImport } from './routes/learn.$slug'
 
+const LearnRoute = LearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CycleRoute = CycleRouteImport.update({
   id: '/cycle',
   path: '/cycle',
@@ -23,44 +33,115 @@ const CalendarRoute = CalendarRouteImport.update({
   path: '/calendar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BodyRoute = BodyRouteImport.update({
+  id: '/body',
+  path: '/body',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuizPcosRoute = QuizPcosRouteImport.update({
+  id: '/quiz/pcos',
+  path: '/quiz/pcos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizEndoRoute = QuizEndoRouteImport.update({
+  id: '/quiz/endo',
+  path: '/quiz/endo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnSlugRoute = LearnSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => LearnRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/body': typeof BodyRoute
   '/calendar': typeof CalendarRoute
   '/cycle': typeof CycleRoute
+  '/learn': typeof LearnRouteWithChildren
+  '/learn/$slug': typeof LearnSlugRoute
+  '/quiz/endo': typeof QuizEndoRoute
+  '/quiz/pcos': typeof QuizPcosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/body': typeof BodyRoute
   '/calendar': typeof CalendarRoute
   '/cycle': typeof CycleRoute
+  '/learn': typeof LearnRouteWithChildren
+  '/learn/$slug': typeof LearnSlugRoute
+  '/quiz/endo': typeof QuizEndoRoute
+  '/quiz/pcos': typeof QuizPcosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/body': typeof BodyRoute
   '/calendar': typeof CalendarRoute
   '/cycle': typeof CycleRoute
+  '/learn': typeof LearnRouteWithChildren
+  '/learn/$slug': typeof LearnSlugRoute
+  '/quiz/endo': typeof QuizEndoRoute
+  '/quiz/pcos': typeof QuizPcosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/calendar' | '/cycle'
+  fullPaths:
+    | '/'
+    | '/body'
+    | '/calendar'
+    | '/cycle'
+    | '/learn'
+    | '/learn/$slug'
+    | '/quiz/endo'
+    | '/quiz/pcos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calendar' | '/cycle'
-  id: '__root__' | '/' | '/calendar' | '/cycle'
+  to:
+    | '/'
+    | '/body'
+    | '/calendar'
+    | '/cycle'
+    | '/learn'
+    | '/learn/$slug'
+    | '/quiz/endo'
+    | '/quiz/pcos'
+  id:
+    | '__root__'
+    | '/'
+    | '/body'
+    | '/calendar'
+    | '/cycle'
+    | '/learn'
+    | '/learn/$slug'
+    | '/quiz/endo'
+    | '/quiz/pcos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BodyRoute: typeof BodyRoute
   CalendarRoute: typeof CalendarRoute
   CycleRoute: typeof CycleRoute
+  LearnRoute: typeof LearnRouteWithChildren
+  QuizEndoRoute: typeof QuizEndoRoute
+  QuizPcosRoute: typeof QuizPcosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/learn': {
+      id: '/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof LearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cycle': {
       id: '/cycle'
       path: '/cycle'
@@ -75,6 +156,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalendarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/body': {
+      id: '/body'
+      path: '/body'
+      fullPath: '/body'
+      preLoaderRoute: typeof BodyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -82,13 +170,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quiz/pcos': {
+      id: '/quiz/pcos'
+      path: '/quiz/pcos'
+      fullPath: '/quiz/pcos'
+      preLoaderRoute: typeof QuizPcosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz/endo': {
+      id: '/quiz/endo'
+      path: '/quiz/endo'
+      fullPath: '/quiz/endo'
+      preLoaderRoute: typeof QuizEndoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/$slug': {
+      id: '/learn/$slug'
+      path: '/$slug'
+      fullPath: '/learn/$slug'
+      preLoaderRoute: typeof LearnSlugRouteImport
+      parentRoute: typeof LearnRoute
+    }
   }
 }
 
+interface LearnRouteChildren {
+  LearnSlugRoute: typeof LearnSlugRoute
+}
+
+const LearnRouteChildren: LearnRouteChildren = {
+  LearnSlugRoute: LearnSlugRoute,
+}
+
+const LearnRouteWithChildren = LearnRoute._addFileChildren(LearnRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BodyRoute: BodyRoute,
   CalendarRoute: CalendarRoute,
   CycleRoute: CycleRoute,
+  LearnRoute: LearnRouteWithChildren,
+  QuizEndoRoute: QuizEndoRoute,
+  QuizPcosRoute: QuizPcosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
