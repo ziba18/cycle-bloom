@@ -4,13 +4,14 @@ import { useAppStore } from "@/store/useAppStore";
 import { Onboarding } from "@/components/Onboarding";
 import { motion } from "framer-motion";
 
-const tabs = [
+type Tab = { to: string; label: string; icon: typeof Home; exact?: boolean };
+const tabs: Tab[] = [
   { to: "/", label: "Home", icon: Home, exact: true },
   { to: "/cycle", label: "Cycle", icon: Hexagon },
   { to: "/calendar", label: "Calendar", icon: CalendarDays },
   { to: "/body", label: "Body", icon: User2 },
   { to: "/learn", label: "Learn", icon: BookOpen },
-] as const;
+];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const onboarded = useAppStore((s) => s.profile.onboarded);
@@ -38,7 +39,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               return (
                 <Link
                   key={t.to}
-                  to={t.to}
+                  to={t.to as any}
                   className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm transition-all ${
                     active
                       ? "bg-primary text-primary-foreground shadow-soft"
@@ -83,7 +84,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               return (
                 <Link
                   key={t.to}
-                  to={t.to}
+                  to={t.to as any}
                   className={`flex flex-col items-center gap-1 rounded-2xl px-3 py-2 text-[10px] transition-colors ${
                     active ? "text-primary" : "text-foreground/55"
                   }`}
