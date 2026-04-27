@@ -51,7 +51,7 @@ export function Onboarding() {
               <motion.div key="welcome" {...slide}>
                 <div className="text-center space-y-3">
                   <div className="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-matcha to-rose shadow-glow" />
-                  <h1 className="font-display text-4xl">Welcome to Lunara</h1>
+                  <h1 className="font-display text-4xl">Welcome to Atossa</h1>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     A gentle, personalized companion for your cycle. Built around the truth that no two bodies are the same.
                   </p>
@@ -131,9 +131,9 @@ export function Onboarding() {
                   ))}
                 </div>
                 <p className="mt-6 text-[11px] text-muted-foreground text-center leading-relaxed">
-                  Lunara is for personal tracking and education. It is not a medical device and does not provide diagnoses.
+                  Atossa is for personal tracking and education. It is not a medical device and does not provide diagnoses.
                 </p>
-                <Button onClick={finish} className="w-full mt-6 h-12 rounded-2xl">Enter Lunara</Button>
+                <Button onClick={finish} className="w-full mt-6 h-12 rounded-2xl">Enter Atossa</Button>
               </motion.div>
             )}
           </AnimatePresence>

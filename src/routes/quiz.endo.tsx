@@ -5,7 +5,7 @@ import { endoQuestions } from "@/data/quizzes";
 export const Route = createFileRoute("/quiz/endo")({
   head: () => ({
     meta: [
-      { title: "Endometriosis Self-Assessment — Lunara" },
+      { title: "Endometriosis Self-Assessment — Atossa" },
       { name: "description", content: "An educational reflection on endometriosis indicators." },
     ],
   }),
