@@ -76,7 +76,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </main>
 
         {/* Mobile bottom tab bar */}
-        <nav className="md:hidden fixed bottom-3 left-3 right-3 z-50 glass rounded-3xl px-2 py-2 shadow-soft">
+        <nav className="md:hidden fixed bottom-3 left-3 right-3 z-50 glass rounded-3xl px-2 py-2 shadow-soft" style={{ marginBottom: "env(safe-area-inset-bottom)" }}>
           <div className="flex items-center justify-around">
             {tabs.map((t) => {
               const active = t.exact ? location.pathname === t.to : location.pathname.startsWith(t.to);
