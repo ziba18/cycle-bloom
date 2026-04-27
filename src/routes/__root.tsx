@@ -29,10 +29,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lunara — Personalized cycle & wellness" },
+      { title: "Atossa — Personalized cycle & wellness" },
       { name: "description", content: "A calming, personalized companion for your menstrual cycle, body, and wellbeing." },
-      { name: "author", content: "Lunara" },
-      { property: "og:title", content: "Lunara — Personalized cycle & wellness" },
+      { name: "author", content: "Atossa" },
+      { property: "og:title", content: "Atossa — Personalized cycle & wellness" },
       { property: "og:description", content: "Track your unique cycle with a polygon that mirrors your phases." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

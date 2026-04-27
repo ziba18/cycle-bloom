@@ -7,7 +7,7 @@ import { ArrowRight, ExternalLink, Clock } from "lucide-react";
 export const Route = createFileRoute("/learn")({
   head: () => ({
     meta: [
-      { title: "Learn — Lunara" },
+      { title: "Learn — Atossa" },
       { name: "description", content: "Articles, guides, and resources for menstrual and reproductive health." },
     ],
   }),

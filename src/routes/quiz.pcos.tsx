@@ -5,7 +5,7 @@ import { pcosQuestions } from "@/data/quizzes";
 export const Route = createFileRoute("/quiz/pcos")({
   head: () => ({
     meta: [
-      { title: "PCOS Self-Assessment — Lunara" },
+      { title: "PCOS Self-Assessment — Atossa" },
       { name: "description", content: "An educational reflection on common PCOS indicators." },
     ],
   }),

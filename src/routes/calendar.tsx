@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 export const Route = createFileRoute("/calendar")({
   head: () => ({
     meta: [
-      { title: "Calendar — Lunara" },
+      { title: "Calendar — Atossa" },
       { name: "description", content: "Year-ahead predictions and daily logs for your cycle." },
     ],
   }),

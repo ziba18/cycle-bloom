@@ -12,7 +12,7 @@ const AnatomyScene = lazy(() => import("@/components/body/AnatomyScene").then(m 
 export const Route = createFileRoute("/body")({
   head: () => ({
     meta: [
-      { title: "Body — Lunara" },
+      { title: "Body — Atossa" },
       { name: "description", content: "Log how you feel by tapping a 3D body. Track pain, location, and patterns." },
     ],
   }),

@@ -111,7 +111,7 @@ function Brand({ small = false }: { small?: boolean }) {
         <span className="relative h-7 w-7 rounded-full bg-gradient-to-br from-cream to-rose border border-foreground/10" />
       </span>
       <span className={`font-display ${small ? "text-2xl" : "text-3xl"} tracking-tight`}>
-        Lunara
+        Atossa
       </span>
     </Link>
   );

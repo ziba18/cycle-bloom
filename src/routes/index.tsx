@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Home — Lunara" },
+      { title: "Home — Atossa" },
       { name: "description", content: "Your daily cycle snapshot, mood, and wellness overview." },
     ],
   }),
@@ -125,7 +125,7 @@ function HomePage() {
 
       {/* Disclaimer */}
       <p className="text-[11px] text-muted-foreground text-center pt-4 max-w-lg mx-auto leading-relaxed">
-        Lunara is for personal tracking and education. It is not a medical device and does not provide diagnoses.
+        Atossa is for personal tracking and education. It is not a medical device and does not provide diagnoses.
       </p>
     </div>
   );

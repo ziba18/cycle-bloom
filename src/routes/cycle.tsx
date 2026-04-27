@@ -12,7 +12,7 @@ import { Plus, Trash2 } from "lucide-react";
 export const Route = createFileRoute("/cycle")({
   head: () => ({
     meta: [
-      { title: "Your Cycle — Lunara" },
+      { title: "Your Cycle — Atossa" },
       { name: "description", content: "A polygon shaped to your unique cycle phases. Edit phases, lengths, and colors." },
     ],
   }),

@@ -1,5 +1,5 @@
 
-# Lunara — Personalized Cycle & Wellness App
+# Atossa — Personalized Cycle & Wellness App
 
 A calming, pastel-toned period tracking app with a unique **polygon cycle visualization** (line → triangle → square → pentagon → hexagon depending on phase count), a true **interactive 3D anatomy** for symptom logging, a year-ahead calendar, an education hub, and self-assessment quizzes. All data stored locally in the browser — no login required.
 
@@ -109,7 +109,7 @@ Create: `src/routes/index.tsx`, `cycle.tsx`, `calendar.tsx`, `body.tsx`, `learn.
 - Add fade-in / scale-in keyframes and `.glass` utility (backdrop-blur + translucent bg).
 
 **Disclaimers**
-- Onboarding, quiz intros, and quiz results all show: "Lunara is for personal tracking and education. It is not a medical device and does not provide diagnoses."
+- Onboarding, quiz intros, and quiz results all show: "Atossa is for personal tracking and education. It is not a medical device and does not provide diagnoses."
 
 ## Build order
 
